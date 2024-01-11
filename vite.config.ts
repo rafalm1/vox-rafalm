@@ -12,6 +12,7 @@ const vitestConfig: VitestUserConfigInterface = {
 };
 
 export default defineConfig({
+  base: "/rafalmalyszko-vox/",
   plugins: [vue()],
   test: vitestConfig.test,
 });
