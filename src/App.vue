@@ -34,18 +34,21 @@ const updateTileColor = (inputColor: string) => {
 </script>
 
 <template>
-  <BaseButton @click="addTile">Dodaj kafelek</BaseButton>
+  <BaseButton @click="addTile" data-testid="addTileBtn">
+    Dodaj kafelek
+  </BaseButton>
 
   <VueDraggable
     ref="el"
     class="draggable-area"
     v-model="tileList"
-    animation="150"
+    :animation="150"
   >
     <Tile
       v-for="tile in tileList"
       :key="tile.id"
       :tile="tile"
+      :data-testid="`tile-${tile.id}`"
       @remove="removeTile"
       @edit="openEditColorModal"
     >

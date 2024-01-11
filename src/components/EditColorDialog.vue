@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { hexRegex } from "../utils/hexRegex";
 
-const hexRegex = /^#([0-9A-F]{3}){1,2}$/i;
 const dialog = ref<HTMLDialogElement>();
 const inputColor = ref("");
 
@@ -23,7 +23,7 @@ const closeDialog = () => {
 </script>
 
 <template>
-  <dialog ref="dialog" class="dialog" id="dialog">
+  <dialog ref="dialog" class="dialog">
     <label>Podaj kolor w formacie HEX:</label>
     <input type="text" v-model="inputColor" />
     <button @click="closeDialog">Zatwierdz</button>

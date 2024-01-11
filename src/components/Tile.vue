@@ -17,8 +17,15 @@ const emit = defineEmits<{
 <template>
   <div :style="{ backgroundColor: tile.backgroundColor }" class="tile">
     {{ tile.id }}
-    <BaseButton @click="emit('edit', tile.id)">Zmień</BaseButton>
-    <BaseButton @click="emit('remove', tile.id)">Usuń</BaseButton>
+    <BaseButton @click="emit('edit', tile.id)" :data-testid="`edit-${tile.id}`">
+      Zmień
+    </BaseButton>
+    <BaseButton
+      @click="emit('remove', tile.id)"
+      :data-testid="`remove-${tile.id}`"
+    >
+      Usuń
+    </BaseButton>
   </div>
 </template>
 
@@ -36,6 +43,7 @@ const emit = defineEmits<{
   gap: 10px;
   border-radius: 5px;
   padding-top: 10px;
+  cursor: move;
 
   button {
     width: 50%;
