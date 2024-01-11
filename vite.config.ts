@@ -1,7 +1,17 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import { defineConfig } from "vite";
+import type { UserConfig as VitestUserConfigInterface } from "vitest/config";
+import vue from "@vitejs/plugin-vue";
 
-// https://vitejs.dev/config/
+const vitestConfig: VitestUserConfigInterface = {
+  test: {
+    globals: true,
+    environment: "jsdom",
+    css: true,
+    setupFiles: "./src/test/setup.ts",
+  },
+};
+
 export default defineConfig({
   plugins: [vue()],
-})
+  test: vitestConfig.test,
+});
